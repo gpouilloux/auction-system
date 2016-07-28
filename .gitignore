@@ -4,3 +4,8 @@
 # Compiled python scripts
 *.pyc
 
+# Test data
+.coverage
+
+# Virtual env with Python 2.7
+venv/
