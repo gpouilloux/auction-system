@@ -6,7 +6,7 @@
 ### How to use
 
 - Python 2.7
-- Run the unit tests or the full scenario `python test.py`
+- Run the unit tests `coverage run -m unittest discover test` or the full scenario `python test.py`
 
 ### Specifications
 
