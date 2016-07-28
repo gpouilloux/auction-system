@@ -35,13 +35,18 @@ def main():
     antonin.bid(auction_painting, 999)
     # guillaume should bid more than 999
     guillaume.bid(auction_painting, 102)
+    guillaume.bid(auction_painting, 1002)
 
     auction_painting.stop()
+
+    logging.info(auction_house.latest_auction_by_item_name(painting_name))
+
+    # should fail
+    Auction(painting)
 
     # should fail
     auction_painting.start()
 
-    logging.info(auction_house.latest_auction_by_item_name(painting_name))
 
 if __name__ == '__main__':
     main()

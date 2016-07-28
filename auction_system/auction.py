@@ -8,17 +8,20 @@ logging.getLogger().setLevel(logging.INFO)
 
 class Auction:
     def __init__(self, item):
-        self.id = uuid.uuid1()
-        self.item = item
-        self.is_started = False
-        self.has_failed = False
-        self.highest_bid = None
+        if item.is_sold:
+            logging.error("Item {} already sold".format(item.name))
+        else:
+            self.id = uuid.uuid1()
+            self.item = item
+            self.is_started = False
+            self.has_failed = None
+            self.highest_bid = None
 
     # An auction can be started if it has not already failed
     def start(self):
-        if self.has_failed:
-            logging.error("Auction {} has already failed and "
-                          "can't be started.".format(self.id))
+        if self.has_failed is not None:
+            logging.error("Auction {} already performed "
+                          "on this item.".format(self.id))
         else:
             self.is_started = True
             logging.info("Auction {} has been started".format(self.id))
@@ -29,11 +32,14 @@ class Auction:
         if self.is_started:
             highest_bid = self.highest_bid
             if (highest_bid is None or
-                    (highest_bid is not None
-                     and self.item.reserved_price > highest_bid.amount)):
+                    (highest_bid is not None and
+                     self.item.reserved_price > highest_bid.amount)):
                 self.has_failed = True
                 logging.warning("Auction {} did not reach "
                                 "the reserved price".format(self.id))
+            else:
+                self.has_failed = False
+                self.item.is_sold = True
             self.is_started = False
             logging.info("Auction {} has been stopped".format(self.id))
         else:

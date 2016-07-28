@@ -11,4 +11,5 @@ class Item:
         self.id = uuid.uuid1()
         self.name = name
         self.reserved_price = reserved_price
+        self.is_sold = False
 
