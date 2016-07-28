@@ -11,7 +11,8 @@ Write a backend library for auction house for their online auction system.
 The system supports the following operations:
 
 1. Auctioneer adds an item that can be auctioned. An item has a unique
-name and reserved price.
+name and reserved
+price.
 
 2. Auctioneer starts an auction on an item
 
