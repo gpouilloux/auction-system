@@ -2,7 +2,8 @@
 
 ### How to use
 
-**TODO**
+- Python 2.7
+- Run the unit tests or the full scenario `python test.py`
 
 ### Specifications
 
@@ -29,3 +30,7 @@ should be no longer available for future auctions.
 name. The library should return the status of the auction if there is
 any, if the item is sold, it should return the information regarding
 the price sold and to whom it was sold to.
+
+### Author
+
+Guillaume Pouilloux <gui.pouilloux@gmail.com>
