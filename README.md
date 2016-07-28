@@ -1,5 +1,8 @@
 # Auction system
 
+[![Build Status](https://travis-ci.org/gpouilloux/auction-system.svg?branch=master)](https://travis-ci.org/gpouilloux/auction-system)
+[![Coverage Status](https://coveralls.io/repos/github/gpouilloux/auction-system/badge.svg?branch=master)](https://coveralls.io/github/gpouilloux/auction-system?branch=master)
+
 ### How to use
 
 - Python 2.7
