@@ -30,15 +30,19 @@ class AuctionHouse:
                           "reach the reserved price {}" \
                     .format(name, auction.item.reserved_price)
             else:
-                if auction.is_started:
-                    status += "{} leads the auction with " \
-                              "the amount {}" \
-                        .format(auction.highest_bid.bidder.name,
-                                auction.highest_bid.amount)
+                if auction.highest_bid is None:
+                    status += "No bidder for auction {} of item {}"\
+                        .format(auction, name)
                 else:
-                    status += "{} has been sold to {} " \
-                              "for the amount {}" \
-                        .format(name,
-                                auction.highest_bid.bidder.name,
-                                auction.highest_bid.amount)
+                    if auction.is_started:
+                        status += "{} leads the auction with " \
+                                  "the amount {}" \
+                            .format(auction.highest_bid.bidder.name,
+                                    auction.highest_bid.amount)
+                    else:
+                        status += "{} has been sold to {} " \
+                                  "for the amount {}" \
+                            .format(name,
+                                    auction.highest_bid.bidder.name,
+                                    auction.highest_bid.amount)
         return status
