@@ -27,7 +27,10 @@ class Auction:
     # If the reserved price is not met, the auction is tagged as failed
     def stop(self):
         if self.is_started:
-            if self.item.reserved_price > self.highest_bid.amount:
+            highest_bid = self.highest_bid
+            if (highest_bid is None or
+                    (highest_bid is not None
+                     and self.item.reserved_price > highest_bid.amount)):
                 self.has_failed = True
                 logging.warning("Auction {} did not reach "
                                 "the reserved price".format(self.id))
